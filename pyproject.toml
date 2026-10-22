@@ -1,0 +1,21 @@
+[project]
+name = "wireless-battery-monitor"
+version = "0.1.0"
+description = "探测并展示蓝牙、2.4G 与 USB 无线设备电量的 Windows 桌面工具"
+readme = "README.md"
+authors = [
+    { name = "liwenshen", email = "git@liwenshen.com" }
+]
+license = "MIT"
+requires-python = ">=3.15"
+dependencies = [
+    "pyside6>=6.12.0",
+    "pywinusb>=0.4.2",
+]
+
+[project.scripts]
+wireless-battery-monitor = "wireless_battery_monitor:main"
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"
