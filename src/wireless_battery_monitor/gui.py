@@ -83,7 +83,7 @@ def _font(size: int, weight: QFont.Weight = QFont.Weight.Normal) -> QFont:
 
 
 def _battery_color(level: int) -> QColor:
-    if level < LOW_BATTERY_THRESHOLD:
+    if level <= LOW_BATTERY_THRESHOLD:
         return QColor(RED)
     if level <= 50:
         return QColor(AMBER)
@@ -727,7 +727,7 @@ class MainWindow(QWidget):
         self.total_tile = SummaryTile("设备总数", "已连接 · 未连接")
         self.average_tile = SummaryTile("平均电量", "全部设备平均值")
         self.low_tile = SummaryTile(
-            "低电量设备", f"电量 < {LOW_BATTERY_THRESHOLD}%"
+            "低电量设备", f"电量 ≤ {LOW_BATTERY_THRESHOLD}%"
         )
         summary.addWidget(self.total_tile)
         summary.addWidget(self.average_tile)
@@ -1280,7 +1280,7 @@ class MainWindow(QWidget):
         self._tray.setIcon(_app_icon(count))
         if count:
             self._tray.setToolTip(
-                f"无线设备电量 · {count} 台设备电量低于 "
+                f"无线设备电量 · {count} 台设备电量 ≤ "
                 f"{LOW_BATTERY_THRESHOLD}%"
             )
         else:

@@ -74,7 +74,7 @@ class WirelessDevice:
     def is_low(self) -> bool:
         return (
             self.battery is not None
-            and self.battery < LOW_BATTERY_THRESHOLD
+            and self.battery <= LOW_BATTERY_THRESHOLD
         )
 
 
